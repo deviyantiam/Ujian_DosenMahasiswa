@@ -1,0 +1,26 @@
+NOMOR 1
+use Kampus
+db.createUser({user:"andi",pwd:"anditopsecret",roles:["readWrite","dbAdmin"]})
+db.createUser({user:"budi",pwd:"buditopsecret",roles:[{role:"readWrite",db:"kampus"}]})
+db.createCollection("Dosen")
+db.Dosen.insertMany([
+... {nama:'Caca',usia:28,asal:"Jakarta",bidang:"Fisika Astrologi",titel:"S2",status:"Honorer",nip:123,matkul:["Meterologi","Kosmologi","Kalkulus"]},
+... {nama:'Dedi',usia:29,asal:"Yogyakarta",bidang:"Fisika Terapan",titel:"S3",status:"PNS",nip:456,matkul:["Instrumentasi","Elektronika","Fisika Dasar"]},
+... {nama:'Euis',usia:30,asal:"Bandung",bidang:"Fisika Teoretik",titel:"S1",status:"Honorer",nip:789,matkul:["Fisika Dasar","Fisika Modern","Kalkulus"]}])
+db.createCollection("Mahasiswa")
+db.Mahasiswa.insertMany([
+... {nama:'Faza',usia:19,asal:"Aceh",bidang:"Fisika",angkatan:2017,nim:123},
+... {nama:'Gilang',usia:20,asal:"Semarang",bidang:"Fisika",angkatan:2017,nim:456},
+... {nama:'Hanafi',usia:19,asal:"Makassar",bidang:"Fisika",angkatan:2017,nim:789},
+])
+
+HASIL:
+db.Dosen.find()
+{ "_id" : ObjectId("5c738bca7777ab34e8c1cec6"), "nama" : "Caca", "usia" : 28, "asal" : "Jakarta", "bidang" : "Fisika Astrologi", "titel" : "S2", "status" : "Honorer", "nip" : 123, "matkul" : [ "Meterologi", "Kosmologi", "Kalkulus" ] }
+{ "_id" : ObjectId("5c738c407777ab34e8c1cec7"), "nama" : "Dedi", "usia" : 29, "asal" : "Yogyakarta", "bidang" : "Fisika Terapan", "titel" : "S3", "status" : "PNS", "nip" : 456, "matkul" : [ "Instrumentasi", "Elektronika", "Fisika Dasar" ] }
+{ "_id" : ObjectId("5c738c407777ab34e8c1cec8"), "nama" : "Euis", "usia" : 30, "asal" : "Bandung", "bidang" : "Fisika Teoretik", "titel" : "S1", "status" : "Honorer", "nip" : 789, "matkul" : [ "Fisika Dasar", "Fisika Modern", "Kalkulus" ] }
+db.Mahasiswa.find()
+{ "_id" : ObjectId("5c738d3c7777ab34e8c1cec9"), "nama" : "Faza", "usia" : 19, "asal" : "Aceh", "bidang" : "Fisika", "angkatan" : 2017, "nim" : 123 }
+{ "_id" : ObjectId("5c738d3c7777ab34e8c1ceca"), "nama" : "Gilang", "usia" : 20, "asal" : "Semarang", "bidang" : "Fisika", "angkatan" : 2017, "nim" : 456 }
+{ "_id" : ObjectId("5c738d3c7777ab34e8c1cecb"), "nama" : "Hanafi", "usia" : 19, "asal" : "Makassar", "bidang" : "Fisika", "angkatan" : 2017, "nim" : 789 }
+
